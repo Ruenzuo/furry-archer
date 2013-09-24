@@ -7,7 +7,6 @@
 //
 
 #import "City.h"
-#import <RestKit/RestKit.h>
 
 @implementation City
 

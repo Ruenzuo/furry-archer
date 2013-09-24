@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C61ABE5717F1DE0E004754B9 /* CitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C61ABE5617F1DE0E004754B9 /* CitiesViewController.m */; };
 		C6C7F94617ECBC5B003B66B6 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6C7F94517ECBC5B003B66B6 /* MainStoryboard.storyboard */; };
 		C6C7F94A17ECBD1C003B66B6 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = C6C7F94917ECBD1C003B66B6 /* City.m */; };
 		C6D582C817ECA94700CCAD44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6D582C717ECA94700CCAD44 /* Foundation.framework */; };
@@ -33,6 +34,8 @@
 
 /* Begin PBXFileReference section */
 		41EF54CCF842450FB8569D1B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		C61ABE5517F1DE0E004754B9 /* CitiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CitiesViewController.h; path = Controller/CitiesViewController.h; sourceTree = "<group>"; };
+		C61ABE5617F1DE0E004754B9 /* CitiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CitiesViewController.m; path = Controller/CitiesViewController.m; sourceTree = "<group>"; };
 		C6C7F94517ECBC5B003B66B6 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainStoryboard.storyboard; path = View/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		C6C7F94817ECBD1C003B66B6 /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = City.h; path = Model/City.h; sourceTree = "<group>"; };
 		C6C7F94917ECBD1C003B66B6 /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = City.m; path = Model/City.m; sourceTree = "<group>"; };
@@ -81,6 +84,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C61ABE5417F1DDED004754B9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C61ABE5517F1DE0E004754B9 /* CitiesViewController.h */,
+				C61ABE5617F1DE0E004754B9 /* CitiesViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		C6C7F94417ECBC39003B66B6 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +145,7 @@
 		C6D582CD17ECA94700CCAD44 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				C61ABE5417F1DDED004754B9 /* Controller */,
 				C6C7F94717ECBCD0003B66B6 /* Model */,
 				C6D582F617ECA9C600CCAD44 /* Application */,
 				C6D582F817ECA9D100CCAD44 /* Support */,
@@ -336,6 +349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6D5830517ECAA0000CCAD44 /* main.m in Sources */,
+				C61ABE5717F1DE0E004754B9 /* CitiesViewController.m in Sources */,
 				C6D582FB17ECA9F500CCAD44 /* AppDelegate.m in Sources */,
 				C6C7F94A17ECBD1C003B66B6 /* City.m in Sources */,
 			);
