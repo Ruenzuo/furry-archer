@@ -8,15 +8,22 @@
 
 #import "CitiesViewController.h"
 #import "City.h"
+#import "SearchViewController.h"
+#import "CityViewController.h"
 
 @interface CitiesViewController () <CLLocationManagerDelegate>
+{
+    NSMutableArray *_dataSource;
+    CLLocationManager *_locationManager;
+    __weak UIRefreshControl *_refreshControl;
+
+}
 
 - (void)setupAndStartLocationManager;
 - (void)setupRefreshControl;
 - (void)reloadDataSourceWithCities:(NSArray *)cities;
 - (void)notifyError;
 - (void)setNetworkActivityIndicatorVisible:(BOOL)visible;
-- (void)filterContentForSearchText:(NSString*)searchText;
 - (void)startRefreshTableView;
 - (void)endRefreshTableView;
 
@@ -24,10 +31,6 @@
 
 @implementation CitiesViewController
 {
-    NSMutableArray *_dataSource;
-    NSMutableArray *_filteredDataSource;
-    CLLocationManager *_locationManager;
-    __weak UIRefreshControl *_refreshControl;
 }
 
 #pragma mark - View Controller Lifecycle
@@ -37,7 +40,6 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         _dataSource = [[NSMutableArray alloc] init];
-        _filteredDataSource = [[NSMutableArray alloc] init];
         _locationManager = [[CLLocationManager alloc] init];
     }
     return self;
@@ -48,7 +50,6 @@
     [super viewDidLoad];
     [self setupAndStartLocationManager];
     [self setupRefreshControl];
-    self.searchDisplayController.displaysSearchBarInNavigationBar = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -58,9 +59,15 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"CitySigue"])
-    {
-        
+    if ([[segue identifier] isEqualToString:@"CitySegue"]) {
+        CityViewController *viewController = (CityViewController *)[segue destinationViewController];
+        NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
+        City *city = [_dataSource objectAtIndex:selectedIndexPath.row];
+        viewController.city = city;
+    }
+    else if ([[segue identifier] isEqualToString:@"SearchSegue"]) {
+        SearchViewController *viewController = (SearchViewController *)[segue destinationViewController];
+        [viewController setDataSource:_dataSource];
     }
 }
 
@@ -108,13 +115,6 @@
     [application setNetworkActivityIndicatorVisible:visible];
 }
 
--(void)filterContentForSearchText:(NSString*)searchText
-{
-	[_filteredDataSource removeAllObjects];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.name contains[c] %@", searchText];
-    [_filteredDataSource addObjectsFromArray:[_dataSource filteredArrayUsingPredicate:predicate]];
-}
-
 - (void)startRefreshTableView
 {
     _refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Refreshing data..."];
@@ -158,12 +158,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (tableView == self.searchDisplayController.searchResultsTableView) {
-        return [_filteredDataSource count];
-    }
-    else {
-        return [_dataSource count];
-    }
+    return [_dataSource count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -172,28 +167,17 @@
     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier
                                                                    forIndexPath:indexPath];
     City *city = nil;
-    if (tableView == self.searchDisplayController.searchResultsTableView) {
-        city = [_filteredDataSource objectAtIndex:indexPath.row];
-    }
-    else {
-        city = [_dataSource objectAtIndex:indexPath.row];
-    }
+    city = [_dataSource objectAtIndex:indexPath.row];
     cell.textLabel.text = city.name;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"Lat: %.2f, Lon: %.2f",[city.latitude floatValue],[city.longitude floatValue]];
     return cell;
 }
 
-#pragma mark - UISearchDisplayDelegate
+#pragma mark - Public Methods
 
-- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+- (IBAction)onTouchUpInsideSearchButton:(id)sender
 {
-    [self filterContentForSearchText:searchString];
-    return YES;
-}
-
-- (void)searchDisplayControllerDidEndSearch:(UISearchDisplayController *)controller
-{
-    [self.tableView reloadData];
+    
 }
 
 @end

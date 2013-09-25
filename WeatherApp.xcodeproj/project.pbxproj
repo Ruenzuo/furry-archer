@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C61ABE5717F1DE0E004754B9 /* CitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C61ABE5617F1DE0E004754B9 /* CitiesViewController.m */; };
+		C68C867017F3276600346C4A /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C68C866F17F3276600346C4A /* SearchViewController.m */; };
+		C68C867317F331D400346C4A /* CityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C68C867217F331D400346C4A /* CityViewController.m */; };
 		C6C7F94617ECBC5B003B66B6 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6C7F94517ECBC5B003B66B6 /* MainStoryboard.storyboard */; };
 		C6C7F94A17ECBD1C003B66B6 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = C6C7F94917ECBD1C003B66B6 /* City.m */; };
 		C6D582C817ECA94700CCAD44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6D582C717ECA94700CCAD44 /* Foundation.framework */; };
@@ -36,6 +38,10 @@
 		41EF54CCF842450FB8569D1B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		C61ABE5517F1DE0E004754B9 /* CitiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CitiesViewController.h; path = Controller/CitiesViewController.h; sourceTree = "<group>"; };
 		C61ABE5617F1DE0E004754B9 /* CitiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CitiesViewController.m; path = Controller/CitiesViewController.m; sourceTree = "<group>"; };
+		C68C866E17F3276600346C4A /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchViewController.h; path = Controller/SearchViewController.h; sourceTree = "<group>"; };
+		C68C866F17F3276600346C4A /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewController.m; path = Controller/SearchViewController.m; sourceTree = "<group>"; };
+		C68C867117F331D400346C4A /* CityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CityViewController.h; path = Controller/CityViewController.h; sourceTree = "<group>"; };
+		C68C867217F331D400346C4A /* CityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CityViewController.m; path = Controller/CityViewController.m; sourceTree = "<group>"; };
 		C6C7F94517ECBC5B003B66B6 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainStoryboard.storyboard; path = View/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		C6C7F94817ECBD1C003B66B6 /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = City.h; path = Model/City.h; sourceTree = "<group>"; };
 		C6C7F94917ECBD1C003B66B6 /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = City.m; path = Model/City.m; sourceTree = "<group>"; };
@@ -89,6 +95,10 @@
 			children = (
 				C61ABE5517F1DE0E004754B9 /* CitiesViewController.h */,
 				C61ABE5617F1DE0E004754B9 /* CitiesViewController.m */,
+				C68C866E17F3276600346C4A /* SearchViewController.h */,
+				C68C866F17F3276600346C4A /* SearchViewController.m */,
+				C68C867117F331D400346C4A /* CityViewController.h */,
+				C68C867217F331D400346C4A /* CityViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -350,6 +360,8 @@
 			files = (
 				C6D5830517ECAA0000CCAD44 /* main.m in Sources */,
 				C61ABE5717F1DE0E004754B9 /* CitiesViewController.m in Sources */,
+				C68C867017F3276600346C4A /* SearchViewController.m in Sources */,
+				C68C867317F331D400346C4A /* CityViewController.m in Sources */,
 				C6D582FB17ECA9F500CCAD44 /* AppDelegate.m in Sources */,
 				C6C7F94A17ECBD1C003B66B6 /* City.m in Sources */,
 			);
