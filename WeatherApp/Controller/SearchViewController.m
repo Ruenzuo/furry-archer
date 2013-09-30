@@ -75,6 +75,11 @@
 - (void)setupSearchDisplayController
 {
     self.searchDisplayController.displaysSearchBarInNavigationBar = YES;
+    UITextField *searchField = [self.searchDisplayController.searchBar valueForKey:@"_searchField"];
+    searchField.tintColor = [UIColor colorWithRed:41.0f/255.0f
+                                            green:128.0f/255.0f
+                                             blue:185.0f/255.0f
+                                            alpha:1.0f];
 }
 
 -(void)filterContentForSearchText:(NSString*)searchText
