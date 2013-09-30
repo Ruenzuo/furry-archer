@@ -84,7 +84,6 @@
 - (void)setupRefreshControl
 {
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-    refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
     [refreshControl addTarget:self
                        action:@selector(startRefreshTableView)
              forControlEvents:UIControlEventValueChanged];
@@ -117,16 +116,11 @@
 
 - (void)startRefreshTableView
 {
-    _refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Refreshing data..."];
     [_locationManager startUpdatingLocation];
 }
 
 - (void)endRefreshTableView
 {
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"MMM d, h:mm a"];
-    NSString *lastUpdated = [NSString stringWithFormat:@"Last updated on %@",[formatter stringFromDate:[NSDate date]]];
-    _refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:lastUpdated];
     [_refreshControl endRefreshing];
 }
 
@@ -137,7 +131,6 @@
     [_locationManager stopUpdatingLocation];
     [self setNetworkActivityIndicatorVisible:YES];
     CLLocation *location = [locations lastObject];
-    NSLog(@"Current latitude:%.2f, longitude:%.2f",location.coordinate.latitude,location.coordinate.longitude);
     [City citiesWithUserLatitude:[NSNumber numberWithDouble:location.coordinate.latitude]
                    userLongitude:[NSNumber numberWithDouble:location.coordinate.longitude]
                          andCallbackBlock:^(NSArray *cities, NSError *error) {
@@ -169,15 +162,9 @@
     City *city = nil;
     city = [_dataSource objectAtIndex:indexPath.row];
     cell.textLabel.text = city.name;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"Lat: %.2f, Lon: %.2f",[city.latitude floatValue],[city.longitude floatValue]];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"Lat: %.2f, Lon: %.2f",
+                                 [city.latitude floatValue],[city.longitude floatValue]];
     return cell;
-}
-
-#pragma mark - Public Methods
-
-- (IBAction)onTouchUpInsideSearchButton:(id)sender
-{
-    
 }
 
 @end

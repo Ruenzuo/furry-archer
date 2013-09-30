@@ -14,6 +14,10 @@
 @end
 
 @implementation CityViewController
+{
+}
+
+#pragma mark - View Controller Lifecycle
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {

@@ -11,6 +11,4 @@
 
 @interface CitiesViewController : UITableViewController
 
-- (IBAction)onTouchUpInsideSearchButton:(id)sender;
-
 @end

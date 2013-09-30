@@ -47,6 +47,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Cities" id="wex-ij-1qS">
+                        <barButtonItem key="backBarButtonItem" title=" " id="62j-iU-D56"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="j20-Id-5Jz">
                             <connections>
                                 <action selector="onTouchUpInsideSearchButton:" destination="oC7-gI-FFk" id="As5-pr-2UE"/>
@@ -81,7 +82,7 @@
                                                     <rect key="frame" x="15" y="13" width="91" height="17"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.16078431369999999" green="0.50196078430000002" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2Do-IA-5Nq">
@@ -105,7 +106,7 @@
                                                     <rect key="frame" x="15" y="13" width="91" height="17"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.16078431369999999" green="0.50196078430000002" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AJv-hH-mOO">
@@ -129,7 +130,7 @@
                                                     <rect key="frame" x="15" y="13" width="91" height="17"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.16078431369999999" green="0.50196078430000002" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AEe-iY-I4W">
@@ -203,7 +204,9 @@
                             <outlet property="delegate" destination="9xe-Uh-0tN" id="6D8-bh-sJh"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Search" id="qd2-Wx-kd9"/>
+                    <navigationItem key="navigationItem" title="Search" id="qd2-Wx-kd9">
+                        <barButtonItem key="backBarButtonItem" title=" " id="Jsv-TR-tJS"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchDisplayController" destination="D2O-nl-2pC" id="oh0-ax-roy"/>
                     </connections>
@@ -237,6 +240,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="RA7-ey-fpX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.16078431372549018" green="0.50196078431372548" blue="0.72549019607843135" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -254,6 +258,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="LL7-7d-dRC"/>
+        <segue reference="zHS-cv-PPQ"/>
     </inferredMetricsTieBreakers>
 </document>

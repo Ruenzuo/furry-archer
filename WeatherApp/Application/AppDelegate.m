@@ -9,10 +9,21 @@
 #import "AppDelegate.h"
 #import "City.h"
 
+@interface AppDelegate ()
+
+- (void)setupAppearance;
+
+@end
+
 @implementation AppDelegate
+{
+}
+
+#pragma mark - Application Lifecycle
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [self setupAppearance];
     return YES;
 }
 
@@ -39,6 +50,15 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
 
+}
+
+#pragma mark - Private Methods
+
+- (void)setupAppearance
+{
+    [[self window] setTintColor:[UIColor whiteColor]];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
 }
 
 @end

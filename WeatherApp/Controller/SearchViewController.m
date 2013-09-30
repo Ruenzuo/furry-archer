@@ -55,7 +55,8 @@
 {
     if ([[segue identifier] isEqualToString:@"CitySegue"]) {
         CityViewController *viewController = (CityViewController *)[segue destinationViewController];
-        NSIndexPath *selectedIndexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
+        NSIndexPath *selectedIndexPath = [self.searchDisplayController.searchResultsTableView
+                                          indexPathForSelectedRow];
         City *city = [_filteredDataSource objectAtIndex:selectedIndexPath.row];
         viewController.city = city;
     }
@@ -108,7 +109,8 @@
         city = [_dataSource objectAtIndex:indexPath.row];
     }
     cell.textLabel.text = city.name;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"Lat: %.2f, Lon: %.2f",[city.latitude floatValue],[city.longitude floatValue]];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"Lat: %.2f, Lon: %.2f",
+                                 [city.latitude floatValue],[city.longitude floatValue]];
     return cell;
 }
 
