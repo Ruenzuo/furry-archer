@@ -97,25 +97,21 @@
         return [_filteredDataSource count];
     }
     else {
-        return [_dataSource count];
+        return 0;
     }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"CityCell";
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier
-                                                                 forIndexPath:indexPath];
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     City *city = nil;
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         city = [_filteredDataSource objectAtIndex:indexPath.row];
+        cell.textLabel.text = city.name;
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"Lat: %.2f, Lon: %.2f",
+                                     [city.latitude floatValue],[city.longitude floatValue]];
     }
-    else {
-        city = [_dataSource objectAtIndex:indexPath.row];
-    }
-    cell.textLabel.text = city.name;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"Lat: %.2f, Lon: %.2f",
-                                 [city.latitude floatValue],[city.longitude floatValue]];
     return cell;
 }
 
