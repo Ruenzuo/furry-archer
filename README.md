@@ -5,6 +5,20 @@ __Description:__
 
 This is an iOS 7 application example using RestKit.
 
+__Building:__
+
+In order to build the application, clone this repo:
+
+```sh
+$ git clone git@github.com:Ruenzuo/furry-archer.git
+```
+
+Then set up the dependencies and open the workspace and you're ready to go:
+
+```sh
+$ cd furry-archer && pod install && open WeatherApp.xcworkspace
+```
+
 ![screenshot-1](https://dl.dropboxusercontent.com/u/99114459/ios7-screenshot-1.PNG)&nbsp;
 ![screenshot-2](https://dl.dropboxusercontent.com/u/99114459/ios7-screenshot-2.PNG)
 ![screenshot-3](https://dl.dropboxusercontent.com/u/99114459/ios7-screenshot-3.PNG)
