@@ -23,8 +23,9 @@
 - (void)setupRefreshControl;
 - (void)reloadDataSourceWithCities:(NSArray *)cities;
 - (void)notifyError;
+- (void)notifyAuthorization;
 - (void)setNetworkActivityIndicatorVisible:(BOOL)visible;
-- (void)startRefreshTableView;
+- (void)refreshLocation;
 - (void)endRefreshTableView;
 
 @end
@@ -48,8 +49,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setupAndStartLocationManager];
     [self setupRefreshControl];
+    [self setupAndStartLocationManager];
 }
 
 - (void)didReceiveMemoryWarning
@@ -78,14 +79,14 @@
     _locationManager.delegate = self;
     _locationManager.distanceFilter = kCLDistanceFilterNone;
     _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    [_locationManager startUpdatingLocation];
+    [self refreshLocation];
 }
 
 - (void)setupRefreshControl
 {
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self
-                       action:@selector(startRefreshTableView)
+                       action:@selector(refreshLocation)
              forControlEvents:UIControlEventValueChanged];
     self.refreshControl = refreshControl;
     _refreshControl = refreshControl;
@@ -108,20 +109,49 @@
     [loadAlert show];
 }
 
+- (void)notifyAuthorization
+{
+    UIAlertView *loadAlert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                        message:@"This application is not authorized for location "
+                              "services or location services are not enabled"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+    [loadAlert show];
+}
+
 - (void)setNetworkActivityIndicatorVisible:(BOOL)visible
 {
     UIApplication *application = [UIApplication sharedApplication];
     [application setNetworkActivityIndicatorVisible:visible];
 }
 
-- (void)startRefreshTableView
+- (void)refreshLocation
 {
-    [_locationManager startUpdatingLocation];
+    switch ([CLLocationManager authorizationStatus]) {
+        case kCLAuthorizationStatusNotDetermined:
+            [self endRefreshTableView];
+            [_locationManager startUpdatingLocation];
+            break;
+        case kCLAuthorizationStatusRestricted:
+            [self endRefreshTableView];
+            [self notifyAuthorization];
+            break;
+        case kCLAuthorizationStatusDenied:
+            [self endRefreshTableView];
+            [self notifyAuthorization];
+            break;
+        case kCLAuthorizationStatusAuthorized:
+            [_locationManager startUpdatingLocation];
+            break;
+    }
 }
 
 - (void)endRefreshTableView
 {
-    [_refreshControl endRefreshing];
+    if (_refreshControl.isRefreshing) {
+        [_refreshControl endRefreshing];
+    }
 }
 
 #pragma mark - CLLocationManager
@@ -135,13 +165,11 @@
                    userLongitude:[NSNumber numberWithDouble:location.coordinate.longitude]
                          andCallbackBlock:^(NSArray *cities, NSError *error) {
                              [self setNetworkActivityIndicatorVisible:NO];
+                             [self endRefreshTableView];
                              if (error) {
                                  [self notifyError];
                              }
                              else {
-                                 if (_refreshControl.isRefreshing) {
-                                     [self endRefreshTableView];
-                                 }
                                  [self reloadDataSourceWithCities:cities];
                              }
                          }];
