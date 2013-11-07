@@ -2,8 +2,8 @@
 //  Includes.h
 //  WeatherApp
 //
-//  Created by Taller Technologies on 9/20/13.
-//  Copyright (c) 2013 Home. All rights reserved.
+//  Created by Renzo Crisóstomo on 9/20/13.
+//  Copyright (c) 2013 Renzo Crisóstomo. All rights reserved.
 //
 
 #ifndef WeatherApp_Includes_h
