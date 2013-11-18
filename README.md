@@ -1,5 +1,5 @@
-furry-archer
-============
+RestKit Example
+===============
 
 __Description:__
 
