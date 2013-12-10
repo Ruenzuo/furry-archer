@@ -161,16 +161,17 @@
     [_locationManager stopUpdatingLocation];
     [self setNetworkActivityIndicatorVisible:YES];
     CLLocation *location = [locations lastObject];
+    __weak typeof(self) blocksafeSelf = self;
     [City citiesWithUserLatitude:[NSNumber numberWithDouble:location.coordinate.latitude]
                    userLongitude:[NSNumber numberWithDouble:location.coordinate.longitude]
                          andCallbackBlock:^(NSArray *cities, NSError *error) {
-                             [self setNetworkActivityIndicatorVisible:NO];
-                             [self endRefreshTableView];
+                             [blocksafeSelf setNetworkActivityIndicatorVisible:NO];
+                             [blocksafeSelf endRefreshTableView];
                              if (error) {
-                                 [self notifyError];
+                                 [blocksafeSelf notifyError];
                              }
                              else {
-                                 [self reloadDataSourceWithCities:cities];
+                                 [blocksafeSelf reloadDataSourceWithCities:cities];
                              }
                          }];
 }
