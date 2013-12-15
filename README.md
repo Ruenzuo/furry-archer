@@ -19,9 +19,9 @@ Then set up the dependencies and open the workspace and you're ready to go:
 $ cd restkit-example && pod install && open WeatherApp.xcworkspace
 ```  
 
-![screenshot-1](https://dl.dropboxusercontent.com/u/99114459/ios7-screenshot-1.PNG)&nbsp;
-![screenshot-2](https://dl.dropboxusercontent.com/u/99114459/ios7-screenshot-2.PNG)
-![screenshot-3](https://dl.dropboxusercontent.com/u/99114459/ios7-screenshot-3.PNG)
+![screenshot-1](https://dl.dropboxusercontent.com/u/12352209/GitHub/ios7-screenshot-1.PNG)&nbsp;
+![screenshot-2](https://dl.dropboxusercontent.com/u/12352209/GitHub/ios7-screenshot-2.PNG)
+![screenshot-3](https://dl.dropboxusercontent.com/u/12352209/GitHub/ios7-screenshot-3.PNG)
 
 For more information on how to get started with RestKit, go to https://github.com/RestKit/RestKit.
 
