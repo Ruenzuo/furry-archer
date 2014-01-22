@@ -23,14 +23,14 @@ $ cd restkit-example && pod install && open WeatherApp.xcworkspace
 ![screenshot-2](https://dl.dropboxusercontent.com/u/12352209/GitHub/ios7-screenshot-2.PNG)
 ![screenshot-3](https://dl.dropboxusercontent.com/u/12352209/GitHub/ios7-screenshot-3.PNG)
 
-For more information on how to get started with RestKit, go to https://github.com/RestKit/RestKit.
+For more information on how to get started with RestKit, visit their [repo site](https://github.com/RestKit/RestKit).
 
 License
 =======
 
     The MIT License (MIT)
 
-    Copyright (c) 2013 Renzo Crisóstomo
+    Copyright (c) 2014 Renzo Crisóstomo
 
     Permission is hereby granted, free of charge, to any person obtaining a copy of
     this software and associated documentation files (the "Software"), to deal in
